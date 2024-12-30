@@ -3,6 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import pkg from 'pg';
 import pool from './db/db.js';
+import userRoutes from './routes/userRoutes.js';
+import projectRoutes from './routes/projectRoutes.js';
+import taskRoutes from './routes/taskRoutes.js';
 
 const { Client } = pkg; // Destructuring Client from the default export
 
@@ -10,7 +13,6 @@ dotenv.config(); // Initiliasing dotenv
 
 const app = express();
 const port = process.env.PORT || 5001;
-
 
 // Middleware
 app.use(cors()); // Enable Cross-Origin Requests
@@ -40,6 +42,11 @@ app.get('/test-db', async (req, res) => {
         res.status(500).json({ success: false, error: err.message });
     }
 });
+
+// Register Routes
+app.use('/api/users', userRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
 
 // Starting the Server
 app.listen(port, () => {
