@@ -5,11 +5,11 @@ const router = express.Router();
 
 // Create a new task
 router.post('/', async (req, res) => {
-    const { title, description, project_id, status } = req.body;
+    const { name, description = null, status = 'To Do', priority = 'Medium', due_date = null, project_id } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO tasks (title, description, project_id, status) VALUES ($1, $2, $3, $4) RETURNING *',
-            [title, description, project_id, status || 'To Do']
+            'INSERT INTO tasks (name, description, status, priority, due_date, project_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+            [name, description, status, priority, due_date, project_id]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -33,11 +33,11 @@ router.get('/project/:projectId', async (req, res) => {
 // Update a task
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { title, description, status } = req.body;
+    const { name, description, status, priority, due_date } = req.body;
     try {
         const result = await pool.query(
             'UPDATE tasks SET title = $1, description = $2, status = $3 WHERE id = $4 RETURNING *',
-            [title, description, status, id]
+            [name, description, status, priority, due_date, id]
         );
         res.json(result.rows[0]);
     } catch (err) {

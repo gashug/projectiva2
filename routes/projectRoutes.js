@@ -53,7 +53,12 @@ router.put('/:id', async (req, res) => {
             'UPDATE projects SET name = $1, description =$2 WHERE id = $3 RETURNING *',
             [name, description, id]
         );
-        res.json(result.row[0]);
+
+        if (result.rowCount > 0) {
+            res.status(200).json(result.rows[0]);
+        } else {
+            res.status(404).json({ error: "Project not found" });
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: "Failed to update project " });
