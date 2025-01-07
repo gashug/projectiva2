@@ -13,19 +13,34 @@ router.post('/', async (req, res) => {
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to create project" });
+	next(err);
     }
 });
 
 // Get all projects
+
 router.get('/', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM projects');
-        res.json(result.rows);
+        const result = await pool.query(`
+            SELECT p.id, p.name, p.description,
+                COUNT(t.id) AS total_tasks,
+                COUNT(CASE WHEN t.status = 'Completed' THEN 1 END) AS completed_tasks
+            FROM projects p
+            LEFT JOIN tasks t ON p.id = t.project_id
+            GROUP BY p.id
+        `);
+
+        const projects = result.rows.map(project => {
+            const progress = project.total_tasks === 0 ? 0 : Math.round((project.completed_tasks / project.total_tasks) * 100);
+            return {
+                ...project,
+                progress: progress, // Add progress field to the project data
+            };
+        });
+
+        res.json(projects);  // Send projects with progress field included
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to fetch projects " });
+        next(err);
     }
 });
 
@@ -39,8 +54,7 @@ router.get('/:id', async (req, res) => {
         }
         res.json(result.rows[0]);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to fetch project" });
+	next(err);
     }
 });
 
@@ -60,8 +74,7 @@ router.put('/:id', async (req, res) => {
             res.status(404).json({ error: "Project not found" });
         }
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to update project " });
+	next(err);
     }
 });
 
@@ -72,8 +85,7 @@ router.delete('/:id', async (req, res) => {
         await pool.query('DELETE FROM projects WHERE id = $1', [id]);
         res.json({ message: "Project deleted successfully" });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Failed to delete project" });
+	next(err);
     }
 });
 
