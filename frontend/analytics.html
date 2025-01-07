@@ -326,9 +326,9 @@
         <a class="navbar-brand" href="#">Analytics</a>
         <div class="collapse navbar-collapse">
             <div class="ms-auto">
-                <button id="filter-progress" class="btn btn-primary me-2">Project Progress</button>
-                <button id="filter-completion" class="btn btn-outline-secondary me-2">Task Completion</button>
-                <button id="filter-time" class="btn btn-outline-secondary">Time Tracking</button>
+                <button href="project-progress.html" id="filter-progress" class="btn btn-primary me-2"><a href="project-progress.html" class="nav-link text-white">Project Progress</a></button>
+                <button id="filter-completion" class="btn btn-outline-secondary me-2"><a href="task-completion.html" class="nav-link text-white">Task Completion</a></button>
+                <button id="filter-time" class="btn btn-outline-secondary"><a href="time-tracking.html" class="nav-link text-white">Time Tracking</a></button>
             </div>
         </div>
     </nav>
@@ -385,6 +385,12 @@
                     </template>
                 </div>
             </section>
+
+            <!-- Task Completion Section -->
+	        <section id="task-completion" class="analytics-section">
+	            <h3 class="mb-3">Task Completion</h3>
+	            <div class="row" id="completion-container"></div>
+	        </section>
         </section>
     </main>
 

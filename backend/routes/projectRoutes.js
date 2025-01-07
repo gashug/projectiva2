@@ -19,30 +19,65 @@ router.post('/', async (req, res) => {
 
 // Get all projects
 
-router.get('/', async (req, res) => {
+// router.get('/', async (req, res) => {
+//     try {
+//         const result = await pool.query(`
+//             SELECT p.id, p.name, p.description,
+//                 COUNT(t.id) AS total_tasks,
+//                 COUNT(CASE WHEN t.status = 'Completed' THEN 1 END) AS completed_tasks
+//             FROM projects p
+//             LEFT JOIN tasks t ON p.id = t.project_id
+//             GROUP BY p.id
+//         `);
+
+//         const projects = result.rows.map(project => {
+//             const progress = project.total_tasks === 0 ? 0 : Math.round((project.completed_tasks / project.total_tasks) * 100);
+//             return {
+//                 ...project,
+//                 progress: progress, // Add progress field to the project data
+//             };
+//         });
+
+//         res.json(projects);  // Send projects with progress field included
+//     } catch (err) {
+//         next(err);
+//     }
+// });
+
+router.get('/', async (req, res, next) => {
     try {
         const result = await pool.query(`
-            SELECT p.id, p.name, p.description,
+            SELECT 
+                p.id, 
+                p.name, 
+                p.description, 
                 COUNT(t.id) AS total_tasks,
-                COUNT(CASE WHEN t.status = 'Completed' THEN 1 END) AS completed_tasks
+                COUNT(CASE WHEN t.status = 'Done' THEN 1 END) AS completed_tasks
             FROM projects p
             LEFT JOIN tasks t ON p.id = t.project_id
             GROUP BY p.id
         `);
 
         const projects = result.rows.map(project => {
-            const progress = project.total_tasks === 0 ? 0 : Math.round((project.completed_tasks / project.total_tasks) * 100);
+            const totalTasks = parseInt(project.total_tasks, 10);
+            const completedTasks = parseInt(project.completed_tasks, 10);
+            const completionRate = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
             return {
                 ...project,
-                progress: progress, // Add progress field to the project data
+                total_tasks: totalTasks,
+                completed_tasks: completedTasks,
+                completionRate, // Task completion rate
+                progress: completionRate // Project progress
             };
         });
 
-        res.json(projects);  // Send projects with progress field included
+        res.json(projects); // Return the projects with additional fields
     } catch (err) {
         next(err);
     }
 });
+
 
 // Get specific project
 router.get('/:id', async (req, res) => {
