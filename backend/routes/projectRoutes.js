@@ -94,7 +94,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a project
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res, next) => {
     const { id } = req.params;
     const { name, description } = req.body;
     try {
@@ -114,13 +114,13 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a project
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
         await pool.query('DELETE FROM projects WHERE id = $1', [id]);
         res.json({ message: "Project deleted successfully" });
     } catch (err) {
-	next(err);
+	    next(err);
     }
 });
 
