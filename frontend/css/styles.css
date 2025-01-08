@@ -1,19 +1,19 @@
 /* Reset some default styles */
-{
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 /* Body and Layout */
-body {
+/* body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #fbfbfb;
-}
+} */
 
 /* Navbar */
-header {
+/* header {
     background-color: #333;
     padding: 10px 0;
     display: flex;
@@ -49,10 +49,10 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #f4f4f4;
-}
+} */
 
 /* Hero Section */
-.hero {
+/* .hero {
     background-color: #007bff;
     color: white;
     text-align: center;
@@ -90,10 +90,10 @@ nav ul li a:hover {
 
 .cta-btn:hover {
     background-color: #c13a20;
-}*/
+}*/ */
 
 /* Auth Forms */
-.auth-forms {
+/* .auth-forms {
     display: flex;
     justify-content: center;
     margin: 40px 0;
@@ -144,10 +144,10 @@ nav ul li a:hover {
 
 .form-box button:hover {
     background-color: #218838;
-}
+} */
 
 /* Footer */
-footer {
+/* footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -155,4 +155,174 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+} */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #6c63ff, #ab47bc);
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-buttons .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-buttons .primary {
+    background-color: #ffffff;
+    color: #6c63ff;
+  }
+  
+  .cta-buttons .secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .cta-buttons .btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* Features Section */
+  .features {
+    padding: 60px 0;
+    background: white;
+    text-align: center;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    background: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .testimonial {
+    max-width: 600px;
+    margin: 20px auto;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .testimonial h4 {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+  
+  /* Interactive Demo Section */
+  .interactive-demo {
+    background: linear-gradient(135deg, #ffb74d, #ff8a65);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .interactive-demo h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .interactive-demo p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .interactive-demo .btn {
+    background: white;
+    color: #ff8a65;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }  

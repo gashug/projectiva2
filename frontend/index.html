@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,25 +8,62 @@
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body> -->
 
     <!-- Navbar -->
-    <header>
-        <nav>
+    <!-- <header>
+        <nav> -->
             <!-- <div class="logo">
                 <img src="assets/logop.svg" alt="App Logo">
             </div> -->
-            <ul class="nav-links">
+            <!-- <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Features</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><div id="user-button"></div></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav> -->
 
     <!-- Hero Section -->
-    <section class="hero">
+    <!-- <section class="hero">
         <div class="hero-content">
             <h1>Welcome to Your Projectiva</h1>
             <p>Organize your projects, track tasks, and manage your workflow with ease.</p>
@@ -35,17 +72,105 @@
     </section>
     <div>
     <img src="assets/hero2.svg" alt="Hero Image" class="hero-image">
-    </div>
+    </div> -->
     <!-- Clerk Authentication Section -->
-    <section id="auth-section">
+    <!-- <section id="auth-section">
         <div id="auth-container"></div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
         <p>&copy; 2025 Projectiva. All Rights Reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="js/app.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectiva2 - Manage Projects Your Way</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Manage Projects Your Way</h1>
+      <p>Streamline tasks, collaborate effortlessly, and track progress—all in one place.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn primary">Get Started for Free</a>
+        <a href="#features" class="btn secondary">Explore Features</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Choose Projectiva2?</h2>
+      <div class="feature-cards">
+        <div class="card">
+          <img src="icons/custom-workflows.svg" alt="Custom Workflows">
+          <h3>Custom Workflows</h3>
+          <p>Tailor task views to your team’s needs.</p>
+        </div>
+        <div class="card">
+          <img src="icons/built-in-analytics.svg" alt="Built-In Analytics">
+          <h3>Built-In Analytics</h3>
+          <p>Visualize project progress and task completion rates.</p>
+        </div>
+        <div class="card">
+          <img src="icons/seamless-collaboration.svg" alt="Seamless Collaboration">
+          <h3>Seamless Collaboration</h3>
+          <p>Comment on tasks, notify your team, and stay synced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Loved by Teams Everywhere</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial">
+          <p>"Projectiva2 has transformed the way our team works together. The built-in analytics are a game-changer!"</p>
+          <h4>Jane Doe, Project Manager</h4>
+        </div>
+        <div class="testimonial">
+          <p>"The simplicity and customization options make it perfect for our growing startup."</p>
+          <h4>John Smith, CEO</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section -->
+  <section class="interactive-demo">
+    <div class="container">
+      <h2>See Projectiva2 in Action</h2>
+      <p>Explore drag-and-drop task management and real-time collaboration in a few clicks.</p>
+      <a href="#" class="btn primary">Try the Demo</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./features.html">Features</a>
+        <a href="#">Pricing</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <p>&copy; 2025 Projectiva2. All rights reserved.</p>
+    </div>
+  </footer>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
